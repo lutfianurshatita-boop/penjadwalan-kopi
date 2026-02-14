@@ -17,7 +17,7 @@ export function hitungMaxPlus(input) {
     const baseJemur = {natural: 30, honey: 18, fullwash: 9};
     const faktorAlat = {manual: 1.0, greenhouse: 0.8};
 
-    d.jemur = Math.ceil(baseJemur[metode]*faktorAlat[alat]||1);
+    d.jemur = Math.ceil(baseJemur[metode]*faktorAlat[alat]);
 
     // Logika Roasting
     // Asumsi: Kapasitas manual 5kg/hari
