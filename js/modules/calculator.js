@@ -14,13 +14,11 @@ export function hitungMaxPlus(input) {
     else d.fermentasi = 1; // Natural / others
 
     // Logika Penjemuran
-    if (metode === "natural") {
-        d.jemur = (cuaca === "hujan") ? 45 : (cuaca === "mendung" ? 30 : 20);
-    } else if (metode === "honey") {
-        d.jemur = (cuaca === "hujan") ? 25 : 15;
-    } else {
-        d.jemur = (cuaca === "hujan") ? 10 : 7;
-    }
+    const baseJemur = {natural:30, honey: 18, fullwash: 9};
+    const faktorLingkungan ={lembab: 1.3, sedang: 1,0, kering: 0.8};
+    const faktorMetode = {manual: 1.0, greenhouse: 0.8};
+
+    d.jemur = Math.ceil(baseJemur[metode]*faktorLingkungan[lingkungan]*faktorMetode[metodeJemur]);
 
     // Logika Roasting
     // Asumsi: Kapasitas manual 5kg/hari
