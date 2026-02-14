@@ -15,7 +15,7 @@ export function hitungMaxPlus(input) {
 
     // Logika Penjemuran
     const baseJemur = {natural:30, honey: 18, fullwash: 9};
-    const faktorLingkungan ={lembab: 1.3, sedang: 1,0, kering: 0.8};
+    const faktorLingkungan = {lembab: 1.3, sedang: 1.0, kering: 0.8};
     const faktorMetode = {manual: 1.0, greenhouse: 0.8};
 
     d.jemur = Math.ceil(baseJemur[metode]*faktorLingkungan[lingkungan]*faktorMetode[metodeJemur]);
@@ -34,9 +34,7 @@ export function hitungMaxPlus(input) {
         { nama: "Fermentasi", dur: d.fermentasi },
         { nama: "Penjemuran", dur: d.jemur },
         { nama: "Roasting", dur: d.roasting },
-        { nama: "Pengemasan", dur: d.kemas }
-    ];
-
+        { nama: "Pengemasan", dur: d.kemas }];
     tahapan.forEach(t => {
         let start = new Date(currentTgl);
         let durasiEfektif = Math.max(1, t.dur); 
