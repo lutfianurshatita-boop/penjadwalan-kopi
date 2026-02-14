@@ -81,7 +81,6 @@ window.hitungJadwal = function() {
         namaKelompok: document.getElementById("nama_kelompok")?.value || "Anonim",
         jumlah: parseInt(panenVal),
         metode: document.getElementById("metode").value,
-        cuaca: document.getElementById("cuaca")?.value || "cerah",
         alat: document.getElementById("alat")?.value || "manual",
         tglStart: document.getElementById("tgl_start_produksi").value
     };
