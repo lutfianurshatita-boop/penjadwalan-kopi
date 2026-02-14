@@ -3,7 +3,7 @@
 // ==========================================
 
 export function hitungMaxPlus(input) {
-    const { jumlah, metode, cuaca, alat, tglStart } = input;
+    const { jumlah, metode, alat, tglStart } = input;
 
     // 1. Knowledge Base Durasi (dalam hari)
     let d = { sortasi: 1, kemas: 1 };
@@ -14,11 +14,10 @@ export function hitungMaxPlus(input) {
     else d.fermentasi = 1; // Natural / others
 
     // Logika Penjemuran
-    const baseJemur = {natural:30, honey: 18, fullwash: 9};
-    const faktorLingkungan = {lembab: 1.3, sedang: 1.0, kering: 0.8};
-    const faktorMetode = {manual: 1.0, greenhouse: 0.8};
+    const baseJemur = {natural: 30, honey: 18, fullwash: 9};
+    const faktorAlat = {manual: 1.0, greenhouse: 0.8};
 
-    d.jemur = Math.ceil(baseJemur[metode]*faktorLingkungan[lingkungan]*faktorMetode[metodeJemur]);
+    d.jemur = Math.ceil(baseJemur[metode]*faktorAlat[alat]||1);
 
     // Logika Roasting
     // Asumsi: Kapasitas manual 5kg/hari
